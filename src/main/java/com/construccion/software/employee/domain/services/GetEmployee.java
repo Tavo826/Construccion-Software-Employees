@@ -16,7 +16,7 @@ public class GetEmployee {
 
     public Employee getByDocumentId(long documentId) throws Exception {
 
-        Employee employee = employeePort.findByDocument(documentId);
+        Employee employee = employeePort.findByDocumentId(documentId);
         if (employee == null) {
             throw new EmployeeNotFoundException("no existe una persona registrada con esa cédula");
         }

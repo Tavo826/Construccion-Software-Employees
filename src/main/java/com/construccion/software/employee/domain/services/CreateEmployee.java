@@ -16,7 +16,7 @@ public class CreateEmployee {
 
     public Employee create(Employee employee) throws Exception {
 
-        if (employeePort.findByDocument(employee.getDocumentId()) != null) {
+        if (employeePort.findByDocumentId(employee.getDocumentId()) != null) {
             throw new BusinessException("ya existe una persona registrada con esa cédula");
         }
 

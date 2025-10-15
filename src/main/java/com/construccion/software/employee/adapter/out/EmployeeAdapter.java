@@ -20,7 +20,7 @@ public class EmployeeAdapter implements EmployeePort {
     }
 
     @Override
-    public Employee findByDocument(long documentId) {
+    public Employee findByDocumentId(long documentId) {
 
         Optional<EmployeeEntity> employeeOptional = employeeRepository.findById(documentId);
 
