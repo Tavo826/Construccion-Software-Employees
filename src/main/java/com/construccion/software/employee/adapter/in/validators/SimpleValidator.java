@@ -20,8 +20,18 @@ public abstract class SimpleValidator {
         try {
             return Long.parseLong(value);
         } catch (Exception e) {
-            throw new InputsException(element + " debe ser un valor numerico");
+            throw new InputsException(element + " debe ser un valor numérico");
         }
+    }
+
+    public String phoneValidator(String element, String value) {
+        stringValidator(element, value);
+
+        if (!value.isEmpty() && value.length() < 11) {
+            return value;
+        }
+
+        throw new InputsException(element + " debe contener entre 1 y 10 dígitos");
     }
 
     public Role roleValidator(String element, String value) {
@@ -33,15 +43,31 @@ public abstract class SimpleValidator {
         }
     }
 
+    public String addressValidator(String element, String value) {
+        stringValidator(element, value);
+
+        if (!value.isEmpty() && value.length() < 30) {
+            return value;
+        }
+
+        throw new InputsException(element + "máximo 30 caracteres");
+    }
+
     public LocalDate dateValidator(String element, String value) {
         stringValidator(element, value);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         try {
-            return LocalDate.parse(value, formatter);
+            LocalDate date = LocalDate.parse(value, formatter);
+
+            if (date.isAfter(LocalDate.now().plusYears(150))) {
+                throw new InputsException(element + " máximo 150 años");
+            }
+
+            return date;
         } catch (Exception e) {
-            throw new InputsException(element + " debe ser una fecha válida en formato yyyy-MM-dd");
+            throw new InputsException(element + " debe ser una fecha válida en formato dd/MM/yyyy");
         }
     }
 
