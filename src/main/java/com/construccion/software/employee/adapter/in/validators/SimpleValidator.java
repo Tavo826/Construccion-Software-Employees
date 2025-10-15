@@ -71,6 +71,26 @@ public abstract class SimpleValidator {
         }
     }
 
+    public String usernameValidator(String element, String value) {
+        stringValidator(element, value);
+
+        if (value.matches("^[A-Za-z0-9]{1,15}$")) {
+            return value;
+        }
+
+        throw new InputsException(element + " máximo 15 caracteres, solo debe contener letras y números");
+    }
+
+    public String passwordValidator(String element, String value) {
+        stringValidator(element, value);
+
+        if (value.matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,}$")) {
+            return value;
+        }
+
+        throw new InputsException(element + " debe incluir una mayúscula, un número, un carácter especial y contener por lo menos 8 caracteres");
+    }
+
     public String emailValidator(String element, String value) {
         stringValidator(element, value);
 

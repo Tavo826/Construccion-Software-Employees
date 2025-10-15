@@ -2,7 +2,6 @@ package com.construccion.software.employee.adapter.in.builder;
 
 import com.construccion.software.employee.adapter.in.validators.EmployeeValidator;
 import com.construccion.software.employee.domain.models.Employee;
-import com.construccion.software.employee.domain.models.enums.Role;
 import org.springframework.stereotype.Component;
 
 @Component

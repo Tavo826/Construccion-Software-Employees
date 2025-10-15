@@ -1,6 +1,5 @@
 package com.construccion.software.employee.domain.services;
 
-import com.construccion.software.employee.application.exceptions.EmployeeNotFoundException;
 import com.construccion.software.employee.domain.models.Employee;
 import com.construccion.software.employee.domain.ports.EmployeePort;
 import org.springframework.stereotype.Service;

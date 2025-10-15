@@ -6,7 +6,8 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees", indexes = {
-        @Index(name = "idx_employee_document_id", columnList = "documentId")
+        @Index(name = "idx_employee_document_id", columnList = "documentId"),
+        @Index(name = "idx_employee_username", columnList = "username"),
 })
 public class EmployeeEntity {
 
@@ -23,19 +24,19 @@ public class EmployeeEntity {
     @Column(nullable = false)
     private LocalDate birthDate;
 
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false, length = 10)
     private String phone;
 
     @Column(nullable = false, length = 50)
     private String email;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 30)
     private String address;
 
     @Column(nullable = false, length = 20)
     private String role;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 20, unique = true)
     private String username;
 
     @Column(nullable = false)

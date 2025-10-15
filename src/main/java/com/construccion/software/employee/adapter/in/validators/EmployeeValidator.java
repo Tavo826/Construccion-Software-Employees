@@ -21,7 +21,7 @@ public class EmployeeValidator extends SimpleValidator{
     }
 
     public String phoneValidator(String value) {
-        return phoneValidator("telefono", value);
+        return phoneValidator("teléfono", value);
     }
 
     public String emailValidator(String value) {
@@ -29,7 +29,7 @@ public class EmployeeValidator extends SimpleValidator{
     }
 
     public String addressValidator(String value) {
-        return addressValidator("direccion", value);
+        return addressValidator("dirección", value);
     }
 
     public Role roleValidator(String value) {
@@ -37,10 +37,10 @@ public class EmployeeValidator extends SimpleValidator{
     }
 
     public String usernameValidator(String value) {
-        return stringValidator("username", value);
+        return usernameValidator("username", value);
     }
 
     public String passwordValidator(String value) {
-        return stringValidator("clave", value);
+        return passwordValidator("clave", value);
     }
 }

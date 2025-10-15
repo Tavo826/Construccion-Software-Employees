@@ -1,7 +1,6 @@
 package com.construccion.software.employee.adapter.out;
 
 import com.construccion.software.employee.application.exceptions.BusinessException;
-import com.construccion.software.employee.application.exceptions.EmployeeNotFoundException;
 import com.construccion.software.employee.domain.models.Employee;
 import com.construccion.software.employee.domain.ports.EmployeePort;
 import com.construccion.software.employee.infrastructure.persistence.entities.EmployeeEntity;
@@ -32,6 +31,14 @@ public class EmployeeAdapter implements EmployeePort {
     public Employee findByDocument(long documentId) {
 
         EmployeeEntity employeeEntity = employeeRepository.findByDocumentId(documentId);
+
+        return EmployeeMapper.toDomain(employeeEntity);
+    }
+
+    @Override
+    public Employee findByUsername(String username) {
+
+        EmployeeEntity employeeEntity = employeeRepository.findByUsername(username);
 
         return EmployeeMapper.toDomain(employeeEntity);
     }

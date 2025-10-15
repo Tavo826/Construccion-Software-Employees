@@ -6,6 +6,7 @@ public interface EmployeePort {
 
     public Employee findById(long id);
     public Employee findByDocument(long documentId);
+    public Employee findByUsername(String username);
     public Employee save(Employee user);
     public Employee update(long id, Employee employee) throws Exception;
     public void delete(long id);
