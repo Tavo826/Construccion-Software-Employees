@@ -13,12 +13,12 @@ public class DeleteEmployee {
         this.employeePort = employeePort;
     }
 
-    public void delete(long id) throws Exception {
+    public void delete(long documentId) throws Exception {
 
-        if (employeePort.findByDocument(id) == null) {
-            throw new BusinessException("No existe un empleado con el documento " + id);
+        if (employeePort.findByDocument(documentId) == null) {
+            throw new BusinessException("No existe un empleado con el documento " + documentId);
         }
 
-        employeePort.delete(id);
+        employeePort.delete(documentId);
     }
 }
