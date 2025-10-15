@@ -69,10 +69,10 @@ public class EmployeeController {
         return ResponseEntity.ok(updatedEmployee);
     }
 
-    @DeleteMapping("Employees/{id}")
-    public ResponseEntity<?> deleteEmployee(@PathVariable long id) throws Exception {
+    @DeleteMapping("Employees/{documentId}")
+    public ResponseEntity<?> deleteEmployee(@PathVariable String documentId) throws Exception {
 
-        employeeUseCase.deleteEmployee(id);
+        employeeUseCase.deleteEmployee(employeeBuilder.getDocumentId(documentId));
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
