@@ -74,7 +74,7 @@ public class EmployeeController {
 
         employeeUseCase.deleteEmployee(employeeBuilder.getDocumentId(documentId));
 
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.noContent().build();
 
     }
 }
