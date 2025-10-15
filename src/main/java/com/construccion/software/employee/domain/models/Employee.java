@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 public class Employee {
 
-    private long id;
     private long documentId;
     private String name;
     private LocalDate birthDate;
@@ -16,14 +15,6 @@ public class Employee {
     private Role role;
     private String username;
     private String password;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public long getDocumentId() {
         return documentId;

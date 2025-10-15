@@ -15,8 +15,8 @@ public class DeleteEmployee {
 
     public void delete(long id) throws Exception {
 
-        if (employeePort.findById(id) == null) {
-            throw new BusinessException("No existe un empleado con el id " + id);
+        if (employeePort.findByDocument(id) == null) {
+            throw new BusinessException("No existe un empleado con el documento " + id);
         }
 
         employeePort.delete(id);

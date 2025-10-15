@@ -6,16 +6,11 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "employees", indexes = {
-        @Index(name = "idx_employee_document_id", columnList = "documentId"),
         @Index(name = "idx_employee_username", columnList = "username"),
 })
 public class EmployeeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(unique = true)
     private Long documentId;
 
     @Column(nullable = false, length = 50)
@@ -42,15 +37,6 @@ public class EmployeeEntity {
     @Column(nullable = false)
     private String password;
 
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getDocumentId() {
         return documentId;

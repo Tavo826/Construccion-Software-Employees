@@ -20,19 +20,16 @@ public class EmployeeAdapter implements EmployeePort {
     }
 
     @Override
-    public Employee findById(long id) {
-
-        EmployeeEntity employeeEntity = employeeRepository.findById(id).orElse(null);
-
-        return EmployeeMapper.toDomain(employeeEntity);
-    }
-
-    @Override
     public Employee findByDocument(long documentId) {
 
-        EmployeeEntity employeeEntity = employeeRepository.findByDocumentId(documentId);
+        Optional<EmployeeEntity> employeeOptional = employeeRepository.findById(documentId);
 
-        return EmployeeMapper.toDomain(employeeEntity);
+        if (employeeOptional.isPresent()) {
+            EmployeeEntity employeeEntity = employeeOptional.get();
+            return EmployeeMapper.toDomain(employeeEntity);
+        }
+
+        return null;
     }
 
     @Override
@@ -51,9 +48,9 @@ public class EmployeeAdapter implements EmployeePort {
     }
 
     @Override
-    public Employee update(long id, Employee employee) throws Exception {
+    public Employee update(Employee employee) {
 
-        Optional<EmployeeEntity> employeeOptional = employeeRepository.findById(id);
+        Optional<EmployeeEntity> employeeOptional = employeeRepository.findById(employee.getDocumentId());
 
         if (employeeOptional.isPresent()) {
             EmployeeEntity employeeEntity = employeeOptional.get();
@@ -70,14 +67,13 @@ public class EmployeeAdapter implements EmployeePort {
             EmployeeEntity updatedEmployee = employeeRepository.save(employeeEntity);
             return EmployeeMapper.toDomain(updatedEmployee);
         }
-        else {
-            throw new BusinessException("ocurrió un problema encontrando al usuario");
-        }
+
+        return null;
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(long documentId) {
 
-        employeeRepository.deleteById(id);
+        employeeRepository.deleteById(documentId);
     }
 }

@@ -33,7 +33,6 @@ public class EmployeeMapper {
             return null;
         }
         Employee employee = new Employee();
-        employee.setId(entity.getId());
         employee.setDocumentId(entity.getDocumentId());
         employee.setName(entity.getName());
         employee.setBirthDate(entity.getBirthDate());

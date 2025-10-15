@@ -49,8 +49,8 @@ public class EmployeeController {
                 .body(createdEmployee);
     }
 
-    @PatchMapping("/Employees/{id}")
-    public ResponseEntity<?> updateEmployee(@PathVariable long id, @RequestBody EmployeeRequest request) throws Exception {
+    @PatchMapping("/Employees")
+    public ResponseEntity<?> updateEmployee(@RequestBody EmployeeRequest request) throws Exception {
 
         Employee employee = employeeBuilder.build(
                 request.getDocumentId(),
@@ -64,7 +64,7 @@ public class EmployeeController {
                 request.getPassword()
         );
 
-        Employee updatedEmployee = employeeUseCase.updateEmployee(id, employee);
+        Employee updatedEmployee = employeeUseCase.updateEmployee(employee);
 
         return ResponseEntity.ok(updatedEmployee);
     }

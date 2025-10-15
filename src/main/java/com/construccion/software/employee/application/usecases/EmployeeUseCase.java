@@ -36,13 +36,13 @@ public class EmployeeUseCase {
         return createEmployee.create(employee);
     }
 
-    public Employee updateEmployee(long id, Employee employee) throws Exception {
+    public Employee updateEmployee(Employee employee) throws Exception {
 
-        return updateEmployee.update(id, employee);
+        return updateEmployee.update(employee);
     }
 
-    public void deleteEmployee(long id) throws Exception {
+    public void deleteEmployee(long documentId) throws Exception {
 
-        deleteEmployee.delete(id);
+        deleteEmployee.delete(documentId);
     }
 }
