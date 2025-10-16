@@ -8,14 +8,14 @@ import java.time.format.DateTimeFormatter;
 
 public abstract class SimpleValidator {
 
-    public String stringValidator(String element, String value) {
+    public String stringValidator(String element, String value) throws InputsException {
         if (value == null || value.equals("")) {
-            throw new InputsException(element + " no puede tener un valor vacio o nulo");
+            throw new InputsException(element + " no puede tener un valor vacío o nulo");
         }
         return value;
     }
 
-    public long longValidator(String element, String value) {
+    public long longValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
         try {
             return Long.parseLong(value);
@@ -24,7 +24,7 @@ public abstract class SimpleValidator {
         }
     }
 
-    public String phoneValidator(String element, String value) {
+    public String phoneValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
 
         if (!value.isEmpty() && value.length() < 11) {
@@ -34,7 +34,7 @@ public abstract class SimpleValidator {
         throw new InputsException(element + " debe contener entre 1 y 10 dígitos");
     }
 
-    public Role roleValidator(String element, String value) {
+    public Role roleValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
         try {
             return Role.valueOf(value);
@@ -43,7 +43,7 @@ public abstract class SimpleValidator {
         }
     }
 
-    public String addressValidator(String element, String value) {
+    public String addressValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
 
         if (!value.isEmpty() && value.length() < 30) {
@@ -53,7 +53,7 @@ public abstract class SimpleValidator {
         throw new InputsException(element + "máximo 30 caracteres");
     }
 
-    public LocalDate dateValidator(String element, String value) {
+    public LocalDate dateValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -71,7 +71,7 @@ public abstract class SimpleValidator {
         }
     }
 
-    public String usernameValidator(String element, String value) {
+    public String usernameValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
 
         if (value.matches("^[A-Za-z0-9]{1,15}$")) {
@@ -81,7 +81,7 @@ public abstract class SimpleValidator {
         throw new InputsException(element + " máximo 15 caracteres, solo debe contener letras y números");
     }
 
-    public String passwordValidator(String element, String value) {
+    public String passwordValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
 
         if (value.matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,}$")) {
@@ -91,7 +91,7 @@ public abstract class SimpleValidator {
         throw new InputsException(element + " debe incluir una mayúscula, un número, un carácter especial y contener por lo menos 8 caracteres");
     }
 
-    public String emailValidator(String element, String value) {
+    public String emailValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
 
         if (!value.contains("@")) {

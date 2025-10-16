@@ -1,6 +1,7 @@
 package com.construccion.software.employee.adapter.in.builder;
 
 import com.construccion.software.employee.adapter.in.validators.EmployeeValidator;
+import com.construccion.software.employee.application.exceptions.InputsException;
 import com.construccion.software.employee.domain.models.Employee;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +23,7 @@ public class EmployeeBuilder {
             String address,
             String role,
             String username,
-            String password) {
+            String password) throws InputsException {
 
         Employee employee = new Employee();
         employee.setDocumentId(employeeValidator.documentValidator(documentId));
@@ -38,7 +39,7 @@ public class EmployeeBuilder {
         return employee;
     }
 
-    public long getDocumentId(String documentId) {
+    public long getDocumentId(String documentId) throws InputsException {
 
         return employeeValidator.documentValidator(documentId);
     }
