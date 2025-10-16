@@ -16,6 +16,9 @@ public class EmployeeEntity {
     @Column(nullable = false, length = 50)
     private String name;
 
+    @Column(nullable = false, length = 50)
+    private String surname;
+
     @Column(nullable = false)
     private LocalDate birthDate;
 
@@ -52,6 +55,14 @@ public class EmployeeEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public LocalDate getBirthDate() {

@@ -17,6 +17,10 @@ public class EmployeeValidator extends SimpleValidator{
         return stringValidator("nombre de la persona", value);
     }
 
+    public String surnameValidator(String value) throws InputsException {
+        return stringValidator("apellido de la persona", value);
+    }
+
     public LocalDate birthDateValidator(String value) throws InputsException {
         return dateValidator("fecha de nacimiento", value);
     }

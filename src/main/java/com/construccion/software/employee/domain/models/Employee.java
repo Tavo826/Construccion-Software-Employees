@@ -8,6 +8,7 @@ public class Employee {
 
     private long documentId;
     private String name;
+    private String surname;
     private LocalDate birthDate;
     private long phone;
     private String email;
@@ -30,6 +31,14 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public LocalDate getBirthDate() {

@@ -4,6 +4,7 @@ public class EmployeeRequest {
 
     private String documentId;
     private String name;
+    private String surname;
     private String birthDate;
     private String phone;
     private String email;
@@ -34,6 +35,14 @@ public class EmployeeRequest {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getBirthDate() {

@@ -17,6 +17,7 @@ public class EmployeeBuilder {
     public Employee build(
             String documentId,
             String name,
+            String surname,
             String birthDate,
             String phone,
             String email,
@@ -28,6 +29,7 @@ public class EmployeeBuilder {
         Employee employee = new Employee();
         employee.setDocumentId(employeeValidator.documentValidator(documentId));
         employee.setName(employeeValidator.nameValidator(name));
+        employee.setSurname(employeeValidator.surnameValidator(surname));
         employee.setBirthDate(employeeValidator.birthDateValidator(birthDate));
         employee.setPhone(employeeValidator.phoneValidator(phone));
         employee.setEmail(employeeValidator.emailValidator(email));

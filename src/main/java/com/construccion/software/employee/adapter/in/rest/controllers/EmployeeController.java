@@ -33,6 +33,7 @@ public class EmployeeController {
 
         Employee employee = employeeBuilder.build(
                 request.getDocumentId(),
+                request.getSurname(),
                 request.getName(),
                 request.getBirthDate(),
                 request.getPhone(),
@@ -55,6 +56,7 @@ public class EmployeeController {
         Employee employee = employeeBuilder.build(
                 request.getDocumentId(),
                 request.getName(),
+                request.getSurname(),
                 request.getBirthDate(),
                 request.getPhone(),
                 request.getEmail(),
