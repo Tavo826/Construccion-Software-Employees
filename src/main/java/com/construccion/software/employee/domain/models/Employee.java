@@ -9,7 +9,7 @@ public class Employee {
     private long documentId;
     private String name;
     private LocalDate birthDate;
-    private String phone;
+    private long phone;
     private String email;
     private String address;
     private Role role;
@@ -40,11 +40,11 @@ public class Employee {
         this.birthDate = birthDate;
     }
 
-    public String getPhone() {
+    public long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 

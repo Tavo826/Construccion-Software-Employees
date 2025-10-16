@@ -20,7 +20,7 @@ public class EmployeeEntity {
     private LocalDate birthDate;
 
     @Column(nullable = false, length = 10)
-    private String phone;
+    private long phone;
 
     @Column(nullable = false, length = 50)
     private String email;
@@ -62,11 +62,11 @@ public class EmployeeEntity {
         this.birthDate = birthDate;
     }
 
-    public String getPhone() {
+    public long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 

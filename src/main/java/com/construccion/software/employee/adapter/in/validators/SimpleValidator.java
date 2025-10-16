@@ -24,14 +24,20 @@ public abstract class SimpleValidator {
         }
     }
 
-    public String phoneValidator(String element, String value) throws InputsException {
+    public long phoneValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
 
-        if (!value.isEmpty() && value.length() < 11) {
-            return value;
-        }
+        try {
 
-        throw new InputsException(element + " debe contener entre 1 y 10 dígitos");
+            if (value.length() > 11) {
+                throw new InputsException(element + " debe contener entre 1 y 10 caracteres");
+            }
+
+            return Long.parseLong(value);
+
+        } catch (Exception e) {
+            throw new InputsException(element + " debe ser un valor numérico");
+        }
     }
 
     public Role roleValidator(String element, String value) throws InputsException {

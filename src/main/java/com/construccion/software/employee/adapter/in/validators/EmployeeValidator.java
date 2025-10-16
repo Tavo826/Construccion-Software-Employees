@@ -21,7 +21,7 @@ public class EmployeeValidator extends SimpleValidator{
         return dateValidator("fecha de nacimiento", value);
     }
 
-    public String phoneValidator(String value) throws InputsException {
+    public long phoneValidator(String value) throws InputsException {
         return phoneValidator("teléfono", value);
     }
 
