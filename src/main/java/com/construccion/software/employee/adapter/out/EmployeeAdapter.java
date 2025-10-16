@@ -56,6 +56,7 @@ public class EmployeeAdapter implements EmployeePort {
             EmployeeEntity employeeEntity = employeeOptional.get();
 
             employeeEntity.setName(employee.getName());
+            employeeEntity.setSurname(employeeEntity.getSurname());
             employeeEntity.setBirthDate(employee.getBirthDate());
             employeeEntity.setPhone(employee.getPhone());
             employeeEntity.setEmail(employee.getEmail());
