@@ -23,4 +23,14 @@ public class GetEmployee {
 
         return employee;
     }
+
+    public Employee getByUsername(String username) throws Exception {
+
+        Employee employee = employeePort.findByUsername(username);
+        if (employee == null) {
+            throw new EmployeeNotFoundException("no existe una persona registrada con ese usuario");
+        }
+
+        return employee;
+    }
 }

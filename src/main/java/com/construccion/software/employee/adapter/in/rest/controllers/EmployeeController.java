@@ -19,10 +19,19 @@ public class EmployeeController {
         this.employeeUseCase = employeeUseCase;
     }
 
-    @GetMapping("/Employees/{documentId}")
+    @GetMapping("/Employees/document/{documentId}")
     public ResponseEntity<?> getEmployeeByDocumentId(@PathVariable String documentId) throws Exception {
 
         Employee employee = employeeUseCase.getEmployeeByDocumentId(employeeBuilder.getDocumentId(documentId));
+
+        return ResponseEntity.ok(employee);
+
+    }
+
+    @GetMapping("/Employees/username/{username}")
+    public ResponseEntity<?> getEmployeeUsername(@PathVariable String username) throws Exception {
+
+        Employee employee = employeeUseCase.getEmployeeUsername(employeeBuilder.getUsername(username));
 
         return ResponseEntity.ok(employee);
 

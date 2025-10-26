@@ -31,6 +31,11 @@ public class EmployeeUseCase {
         return getEmployee.getByDocumentId(documentId);
     }
 
+    public Employee getEmployeeUsername(String username) throws Exception {
+
+        return getEmployee.getByUsername(username);
+    }
+
     public Employee createEmployee(Employee employee) throws Exception {
 
         return createEmployee.create(employee);
