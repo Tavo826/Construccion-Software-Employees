@@ -4,6 +4,9 @@ import com.construccion.software.employee.domain.models.Employee;
 import com.construccion.software.employee.domain.models.enums.Role;
 import com.construccion.software.employee.infrastructure.persistence.entities.EmployeeEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmployeeMapper {
 
     public static EmployeeEntity toEntity(Employee employee) {
@@ -25,6 +28,20 @@ public class EmployeeMapper {
         entity.setPassword(employee.getPassword());
 
         return entity;
+    }
+
+    public static List<Employee> toDomain(List<EmployeeEntity> entityList) {
+
+        if (entityList == null) {
+            return null;
+        }
+
+        List<Employee> employeeList = new ArrayList<>();
+        for (EmployeeEntity entity : entityList) {
+            employeeList.add(toDomain(entity));
+        }
+
+        return employeeList;
     }
 
     public static Employee toDomain(EmployeeEntity entity) {

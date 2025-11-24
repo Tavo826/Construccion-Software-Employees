@@ -2,11 +2,14 @@ package com.construccion.software.employee.domain.ports;
 
 import com.construccion.software.employee.domain.models.Employee;
 
+import java.util.List;
+
 public interface EmployeePort {
 
-    public Employee findByDocumentId(long documentId);
-    public Employee findByUsername(String username);
-    public Employee save(Employee employee);
-    public Employee update(Employee employee);
-    public void delete(long documentId);
+    List<Employee> findAll();
+    Employee findByDocumentId(long documentId);
+    Employee findByUsername(String username);
+    Employee save(Employee employee);
+    Employee update(Employee employee);
+    void delete(long documentId);
 }

@@ -8,7 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
+@RequestMapping("api/employees")
 public class EmployeeController {
 
     private final EmployeeBuilder employeeBuilder;
@@ -19,7 +22,15 @@ public class EmployeeController {
         this.employeeUseCase = employeeUseCase;
     }
 
-    @GetMapping("/Employees/document/{documentId}")
+    @GetMapping
+    public ResponseEntity<?> getAllEmployees() throws Exception {
+
+        List<Employee> employeeList = employeeUseCase.getAllEmployees();
+
+        return ResponseEntity.ok(employeeList);
+    }
+
+    @GetMapping("/document/{documentId}")
     public ResponseEntity<?> getEmployeeByDocumentId(@PathVariable String documentId) throws Exception {
 
         Employee employee = employeeUseCase.getEmployeeByDocumentId(employeeBuilder.getDocumentId(documentId));
@@ -28,7 +39,7 @@ public class EmployeeController {
 
     }
 
-    @GetMapping("/Employees/username/{username}")
+    @GetMapping("/username/{username}")
     public ResponseEntity<?> getEmployeeUsername(@PathVariable String username) throws Exception {
 
         Employee employee = employeeUseCase.getEmployeeUsername(employeeBuilder.getUsername(username));
@@ -37,7 +48,7 @@ public class EmployeeController {
 
     }
 
-    @PostMapping("/Employees")
+    @PostMapping()
     public ResponseEntity<?> createEmployee(@RequestBody EmployeeRequest request) throws Exception {
 
         Employee employee = employeeBuilder.build(
@@ -59,7 +70,7 @@ public class EmployeeController {
                 .body(createdEmployee);
     }
 
-    @PatchMapping("/Employees")
+    @PatchMapping()
     public ResponseEntity<?> updateEmployee(@RequestBody EmployeeRequest request) throws Exception {
 
         Employee employee = employeeBuilder.build(
@@ -80,7 +91,7 @@ public class EmployeeController {
         return ResponseEntity.ok(updatedEmployee);
     }
 
-    @DeleteMapping("Employees/{documentId}")
+    @DeleteMapping("/{documentId}")
     public ResponseEntity<?> deleteEmployee(@PathVariable String documentId) throws Exception {
 
         employeeUseCase.deleteEmployee(employeeBuilder.getDocumentId(documentId));

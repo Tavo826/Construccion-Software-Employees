@@ -5,6 +5,8 @@ import com.construccion.software.employee.domain.models.Employee;
 import com.construccion.software.employee.domain.ports.EmployeePort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GetEmployee {
 
@@ -12,6 +14,17 @@ public class GetEmployee {
 
     public GetEmployee(EmployeePort employeePort) {
         this.employeePort = employeePort;
+    }
+
+    public List<Employee> getAllEmployees() throws Exception {
+
+        List<Employee> employeeList = employeePort.findAll();
+
+        if (employeeList.isEmpty()) {
+            throw new EmployeeNotFoundException("no existen empleados");
+        }
+
+        return employeeList;
     }
 
     public Employee getByDocumentId(long documentId) throws Exception {
