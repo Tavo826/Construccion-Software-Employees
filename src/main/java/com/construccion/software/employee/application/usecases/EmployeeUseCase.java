@@ -7,6 +7,8 @@ import com.construccion.software.employee.domain.services.GetEmployee;
 import com.construccion.software.employee.domain.services.UpdateEmployee;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeUseCase {
 
@@ -26,9 +28,19 @@ public class EmployeeUseCase {
         this.deleteEmployee = deleteEmployee;
     }
 
+    public List<Employee> getAllEmployees() throws Exception {
+
+        return getEmployee.getAllEmployees();
+    }
+
     public Employee getEmployeeByDocumentId(long documentId) throws Exception {
 
         return getEmployee.getByDocumentId(documentId);
+    }
+
+    public Employee getEmployeeUsername(String username) throws Exception {
+
+        return getEmployee.getByUsername(username);
     }
 
     public Employee createEmployee(Employee employee) throws Exception {

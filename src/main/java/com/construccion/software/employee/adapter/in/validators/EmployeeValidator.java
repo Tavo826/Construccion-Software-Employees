@@ -30,7 +30,7 @@ public class EmployeeValidator extends SimpleValidator{
     }
 
     public String emailValidator(String value) throws InputsException {
-        return emailValidator("email", value);
+        return emailValidator("correo electrónico", value);
     }
 
     public String addressValidator(String value) throws InputsException {
@@ -38,11 +38,11 @@ public class EmployeeValidator extends SimpleValidator{
     }
 
     public Role roleValidator(String value) throws InputsException {
-        return roleValidator("role", value);
+        return roleValidator("rol", value);
     }
 
     public String usernameValidator(String value) throws InputsException {
-        return usernameValidator("username", value);
+        return usernameValidator("nombre de usuario", value);
     }
 
     public String passwordValidator(String value) throws InputsException {

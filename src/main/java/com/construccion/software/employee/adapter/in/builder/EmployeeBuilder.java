@@ -45,4 +45,9 @@ public class EmployeeBuilder {
 
         return employeeValidator.documentValidator(documentId);
     }
+
+    public String getUsername(String username) throws InputsException {
+
+        return employeeValidator.usernameValidator(username);
+    }
 }

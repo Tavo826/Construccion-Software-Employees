@@ -62,7 +62,7 @@ public abstract class SimpleValidator {
     public LocalDate dateValidator(String element, String value) throws InputsException {
         stringValidator(element, value);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         try {
             LocalDate date = LocalDate.parse(value, formatter);

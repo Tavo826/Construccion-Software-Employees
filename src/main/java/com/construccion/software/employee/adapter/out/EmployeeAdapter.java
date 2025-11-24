@@ -8,6 +8,7 @@ import com.construccion.software.employee.infrastructure.persistence.mapper.Empl
 import com.construccion.software.employee.infrastructure.persistence.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,6 +18,14 @@ public class EmployeeAdapter implements EmployeePort {
 
     public EmployeeAdapter(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
+    }
+
+    @Override
+    public List<Employee> findAll() {
+
+        List<EmployeeEntity> employees = employeeRepository.findAll();
+
+        return EmployeeMapper.toDomain(employees);
     }
 
     @Override
